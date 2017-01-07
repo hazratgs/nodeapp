@@ -1,22 +1,21 @@
-var page = require('../controllers/page');
+var controllers = require('./controllers'),
+    myApp = require('../app'),
+    admin = require('../admin');
 
 // Основной роутер
 module.exports = function (app) {
 
     // Отдаем сайт
-    app.get('/', function (req, res) {
-        res.send("Отдан сайт");
-    });
+    app.get('/', myApp.run);
 
     // Отдаем админ-панель
-    app.get('/dashboard', function (req, res) {
-        res.send("Отдан админ-панель");
-    });
+    app.get('/admin', admin.run);
 
-    // Page Routes
-    app.get('/page', function (req, res) {
-        res.send(page.page());
-    });
+    // RESTful controllers
+    controllers(app);
 
-    // Publication Routes
+    // Если нет обработчиков, 404
+    app.get('*', function (req, res) {
+        res.status(404).send("<h1>Page Not found</h1>");
+    });
 };
