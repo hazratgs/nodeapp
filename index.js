@@ -1,18 +1,16 @@
 // Express
 var express = require('express'),
-    app = express();
+    app = express(),
+    path = require('path');
+
+// Кастомный Log
+var log = require('./libs/log')(module);
 
 // Конфигурация приложения
 var conf = require('./conf');
 
-// Mongo DB
-var mongoose = require('mongoose'),
-    db = mongoose.createConnection('mongodb://localhost/' + conf.get('db'));
-
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function callback () {
-    console.log("Connected!")
-});
+// MongoDB
+var db = require('./libs/db');
 
 // HTTP Сервер
 var server = require('./server');
