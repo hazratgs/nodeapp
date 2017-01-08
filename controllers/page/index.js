@@ -1,3 +1,6 @@
+var mongoose = require('mongoose');
+
+console.log(mongoose.version);
 
 exports.open = function () {
     return {
