@@ -3,7 +3,6 @@ var page = require('../../controllers/page'),
 
 module.exports = function (app) {
 
-
     app.get('/api/page/open', function (req, res) {
         res.send(page.open());
     });
@@ -13,10 +12,14 @@ module.exports = function (app) {
         var query = url.parse(req.url, true).query;
 
         if (query.title && query.url){
-            res.json({"status": page.create(query)});
+            res.json({"ok": true, "result": page.create(query)});
         } else {
-            res.status(500).json({"error": "Нет необходимых данных"});
+            res.status(500).json({"ok": false, "error_code": 500, "description": "Нет необходимых данных"});
         }
+    });
+
+    app.get('/api/page/find', function (req, res) {
+        res.json({"ok": true, "result": page.find()});
     });
 
 };

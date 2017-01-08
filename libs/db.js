@@ -12,3 +12,9 @@ db.on('error', function (err) {
 db.once('open', function callback () {
     log.info("Connected to DB!");
 });
+
+// MongoDB
+exports.mongoose = mongoose;
+
+// This DB
+exports.connect = db;
