@@ -1,3 +1,5 @@
+'use strict';
+
 let setting = require('../../controllers/setting');
 
 module.exports = function (app) {

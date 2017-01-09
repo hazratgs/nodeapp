@@ -1,3 +1,5 @@
+'use strict';
+
 let publication = require('../../controllers/publication');
 
 module.exports = function (app) {

@@ -1,3 +1,5 @@
+'use strict';
+
 let user = require('../../controllers/user');
 
 module.exports = function (app) {

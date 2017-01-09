@@ -1,3 +1,5 @@
+'use strict';
+
 let navigation = require('./navigation'),
     page = require('./page'),
     publication = require('./publication'),

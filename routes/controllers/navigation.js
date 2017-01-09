@@ -1,3 +1,5 @@
+'use strict';
+
 let navigation = require('../../controllers/navigation');
 
 module.exports = function (app) {

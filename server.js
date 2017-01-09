@@ -1,3 +1,5 @@
+'use strict';
+
 let conf = require('./conf');
 let log = require('./libs/log')(module);
 

@@ -1,3 +1,5 @@
+'use strict';
+
 let winston = require('winston');
 
 function getLogger(module) {

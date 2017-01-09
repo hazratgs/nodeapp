@@ -1,3 +1,5 @@
+'use strict';
+
 let controllers = require('./controllers'),
     myApp = require('../app'),
     admin = require('../admin');

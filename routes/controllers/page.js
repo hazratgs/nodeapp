@@ -1,3 +1,5 @@
+'use strict';
+
 let page = require('../../controllers/page'),
     url = require('url');
 
