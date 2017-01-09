@@ -1,8 +1,8 @@
-var controllers = require('./controllers'),
+let controllers = require('./controllers'),
     myApp = require('../app'),
     admin = require('../admin');
 
-var log = require('../libs/log')(module);
+let log = require('../libs/log')(module);
 
 // Основной роутер
 module.exports = function (app) {

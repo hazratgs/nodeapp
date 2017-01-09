@@ -1,5 +1,5 @@
-var conf = require('./conf');
-var log = require('./libs/log')(module);
+let conf = require('./conf');
+let log = require('./libs/log')(module);
 
 exports.run = function (app) {
     app.listen(conf.get('port'), function () {

@@ -1,37 +1,25 @@
-var conf = require('../../conf'),
+'use strict';
+
+let conf = require('../../conf'),
     log = require('../../libs/log')(module),
     db = require('../../libs/db'),
-    schema = require('./schema');
+    model = require('./model');
 
 // Создание страницы
-exports.create = function (data) {
-
-    // Модель
-    var Page = db.connect.model("Page", schema.PageSchema);
-
-    // Экземпляр модели
-    var newPage = new Page({
-        title: data.title,
-        url: data.url
+exports.create = function (param, callback) {
+    let newPage = new model.page({
+        title: param.title,
+        url: param.title
     });
 
-    // Сохранение
     newPage.save(function (err, newUser) {
-        if (err){
-            log.debug("Возникла ошибка при добавлении NewPage");
-        } else {
-            log.info("Страница добавлена");
-        }
+        callback(err, newUser);
     });
-
-    return true;
 };
 
 // Поиск страницы
-exports.find = function (find, callback) {
-    var Page = db.connect.model("Page", schema.PageSchema);
-
-    Page.find(function (err, pages) {
+exports.find = function (query, callback) {
+    model.page.find({title: /^query/}, function (err, pages) {
         callback(pages);
     });
 };

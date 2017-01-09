@@ -1,28 +1,35 @@
-// Express
-var express = require('express'),
-    app = express(),
-    path = require('path');
+/*!
+ * nodeapp
+ * Copyright(c) 2017 Hazrat Gadjkerimov
+ * MIT Licensed
+ */
+
+'use strict';
+
+let express = require('express');
+let app = express();
+let path = require('path');
 
 // Кастомный Log
-var log = require('./libs/log')(module);
+let log = require('./libs/log')(module);
 
 // Конфигурация приложения
-var conf = require('./conf');
+let conf = require('./conf');
 
 // MongoDB
-var db = require('./libs/db');
+// let db = require('./libs/db');
 
 // HTTP Сервер
-var server = require('./server');
-
-// Роуты приложения
-var routes = require('./routes');
-
-// Отдача статики
-app.use(express.static('public'));
-
-// Основной роутер
-routes(app);
-
-// Запуск сервера
-server.run(app);
+// let server = require('./server');
+//
+// // Роуты приложения
+// let routes = require('./routes');
+//
+// // Отдача статики
+// app.use(express.static('public'));
+//
+// // Основной роутер
+// routes(app);
+//
+// // Запуск сервера
+// server.run(app);

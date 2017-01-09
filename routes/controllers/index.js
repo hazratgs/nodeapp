@@ -1,4 +1,4 @@
-var navigation = require('./navigation'),
+let navigation = require('./navigation'),
     page = require('./page'),
     publication = require('./publication'),
     setting = require('./setting'),
@@ -20,5 +20,4 @@ module.exports = function (app) {
 
     // User controller routes
     user(app);
-
 };

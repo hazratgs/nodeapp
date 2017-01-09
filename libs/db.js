@@ -1,10 +1,12 @@
+'use strict';
+
 // Mongo DB
-var mongoose = require('mongoose'),
+let mongoose = require('mongoose'),
     conf = require('../conf'),
     log = require('./log')(module);
 
 mongoose.connect(conf.get('mongoose:uri'));
-var db = mongoose.connection;
+let db = mongoose.connection;
 
 db.on('error', function (err) {
     log.error('connection error:', err.message);
