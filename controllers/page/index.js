@@ -12,10 +12,7 @@ exports.create = function (data) {
     // Экземпляр модели
     var newPage = new Page({
         title: data.title,
-        description: data.description,
-        keywords: data.keywords,
-        url: data.url,
-        content: data.content
+        url: data.url
     });
 
     // Сохранение
@@ -31,15 +28,10 @@ exports.create = function (data) {
 };
 
 // Поиск страницы
-exports.find = function (id) {
+exports.find = function (find, callback) {
     var Page = db.connect.model("Page", schema.PageSchema);
-    var result = [];
 
     Page.find(function (err, pages) {
-        for (var i in pages){
-            result.push(pages[i].title);
-        }
+        callback(pages);
     });
-
-    return result;
 };

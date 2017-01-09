@@ -19,7 +19,11 @@ module.exports = function (app) {
     });
 
     app.get('/api/page/find', function (req, res) {
-        res.json({"ok": true, "result": page.find()});
+        var query = url.parse(req.url, true).query;
+
+        page.find(query.q, function (data) {
+            res.json({"ok": true, "result": data});
+        });
     });
 
 };
