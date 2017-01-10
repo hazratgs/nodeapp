@@ -1,8 +1,8 @@
 'use strict';
 
-let conf = require('../../conf'),
-    log = require('../../libs/log')(module),
-    db = require('../../libs/db'),
+let conf = require(appRoot + '/conf'),
+    log = require(appRoot + '/libs/log')(module),
+    db = require(appRoot + '/libs/db'),
     model = require('./model');
 
 // Создание страницы

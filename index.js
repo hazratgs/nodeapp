@@ -1,6 +1,6 @@
 /*!
  * nodeapp
- * Copyright(c) 2017 Hazrat Gadjkerimov
+ * Copyright(c) 2017 Hazrat Gadjikerimov
  * MIT Licensed
  */
 
@@ -9,6 +9,9 @@
 let express = require('express');
 let app = express();
 let path = require('path');
+
+// App root
+global.appRoot = require('app-root-path');
 
 // Кастомный Log
 let log = require('./libs/log')(module);
