@@ -17,19 +17,19 @@ let log = require('./libs/log')(module);
 let conf = require('./conf');
 
 // MongoDB
-// let db = require('./libs/db');
+let db = require('./libs/db');
 
 // HTTP Сервер
-// let server = require('./server');
-//
-// // Роуты приложения
-// let routes = require('./routes');
-//
-// // Отдача статики
-// app.use(express.static('public'));
-//
-// // Основной роутер
-// routes(app);
-//
-// // Запуск сервера
-// server.run(app);
+let server = require('./server');
+
+// Роуты приложения
+let routes = require('./routes');
+
+// Отдача статики
+app.use(express.static('public'));
+
+// Основной роутер
+routes(app);
+
+// Запуск сервера
+server.run(app);

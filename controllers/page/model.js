@@ -1,3 +1,5 @@
+'use strict';
+
 let db = require('../../libs/db');
 let URLSlugs = require('mongoose-url-slugs');
 
