@@ -24,7 +24,8 @@ let server = require('./server');
 let routes = require('./routes');
 
 // Отдача статики
-app.use(express.static('public'));
+app.use(express.static(appRoot + '/public'));
+app.use('/static', express.static(appRoot + '/admin/public'));
 
 // Основной роутер
 routes(app);

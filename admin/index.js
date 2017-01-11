@@ -1,5 +1,5 @@
 'use strict';
 
 exports.run = function (req, res) {
-    res.send('Админка');
+    res.sendFile(appRoot + '/admin/public/index.html');
 };
