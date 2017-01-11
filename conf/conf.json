@@ -2,5 +2,9 @@
   "port": 3000,
   "mongoose": {
     "uri": "mongodb://localhost/test1"
+  },
+  "telegram": {
+    "token": "284923634:AAFg4S0ahJ5JncV6zSTv3utq2O6Y-lWQOP0",
+    "user": 253178128
   }
 }

@@ -4,6 +4,10 @@ let controllers = require('./controllers'),
     myApp = require('../app'),
     admin = require('../admin');
 
+// Telegram bot
+let bot = require('../libs/telegamBot');
+let conf = require('../conf/index');
+
 let log = require('../libs/log')(module);
 
 // Основной роутер
@@ -29,5 +33,8 @@ module.exports = function (app) {
         res.status(err.status || 500);
         log.error('Internal error(%d): %s',res.statusCode,err.message);
         res.send({"ok": false, "error_code": 500, "description": err.message});
+
+        // Оповещаем разработчика об ошибке
+        bot.sendMessage(conf.get('telegram:user'), err.message);
     });
 };

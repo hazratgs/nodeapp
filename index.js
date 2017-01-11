@@ -9,18 +9,13 @@
 let express = require('express');
 let app = express();
 let path = require('path');
+let telegramBot = require('./libs/telegamBot');
 
 // App root
 global.appRoot = require('app-root-path');
 
 // Кастомный Log
 let log = require('./libs/log')(module);
-
-// Конфигурация приложения
-let conf = require('./conf');
-
-// MongoDB
-let db = require('./libs/db');
 
 // HTTP Сервер
 let server = require('./server');
