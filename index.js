@@ -9,7 +9,6 @@
 let express = require('express');
 let app = express();
 let path = require('path');
-let telegramBot = require('./libs/telegamBot');
 
 // App root
 global.appRoot = require('app-root-path');
