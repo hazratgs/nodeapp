@@ -1,8 +1,7 @@
 'use strict';
 
 let controllers = require('./controllers'),
-    myApp = require('../app'),
-    admin = require('../admin');
+    myApp = require('../app');
 
 // Telegram bot
 let bot = require('../libs/telegamBot');
@@ -17,7 +16,9 @@ module.exports = function (app) {
     app.get('/', myApp.run);
 
     // Отдаем админ-панель
-    app.get('/admin', admin.run);
+    app.get('/admin', function (req, res) {
+        res.sendFile(appRoot + '/admin/dist/index.html');
+    });
 
     // RESTful controllers
     controllers(app);
