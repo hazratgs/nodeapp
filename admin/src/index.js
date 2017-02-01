@@ -1,17 +1,17 @@
-import React from 'react'
-import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import App from './containers/App'
-import './styles/app.css'           // <-- импорт стилей
-import configureStore from './store/configureStore'
+import React from 'react';
+import { Router } from 'react-router';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import routes from './routes';
 
-const store = configureStore()
+import configureStore from './store/configureStore'
+const store = configureStore();
+
+import './styles/app.css';
 
 render(
     <Provider store={store}>
-        <div className='app'> {/* обернули все в .app */}
-            <App />
-        </div>
+        <Router routes={routes} />
     </Provider>,
     document.getElementById('root')
-)
+);

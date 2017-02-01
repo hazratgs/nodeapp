@@ -1,7 +1,5 @@
-var path = require('path')
-var webpack = require('webpack')
-var autoprefixer = require('autoprefixer');
-var precss = require('precss');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     devtool: 'cheap-module-eval-source-map',
@@ -44,7 +42,14 @@ module.exports = {
             }
         ]
     },
-    postcss: function () {
-        return [autoprefixer, precss];
-    }
-}
+    postcss: () => [
+        require('postcss-partial-import'),
+        require('postcss-selector-not'),
+        require('postcss-nested'),
+        // require('postcss-short'),
+        require('autoprefixer')({
+            browsers: ['> 5%'],
+            remove: false,
+        }),
+    ]
+};
