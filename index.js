@@ -10,7 +10,7 @@ let express = require('express');
 let app = express();
 let path = require('path');
 
-// App root
+// Путь к корневому каталогу
 global.appRoot = require('app-root-path');
 
 // Кастомный Log
