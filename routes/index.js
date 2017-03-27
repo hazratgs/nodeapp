@@ -13,7 +13,7 @@ let log = require('../libs/log')(module);
 module.exports = function (app) {
 
     // Отдаем сайт
-    // app.get('/', myApp.run);
+    app.get('/', myApp.run);
 
     // Отдаем админ-панель
     app.get('/admin', function (req, res) {
