@@ -1,36 +1,26 @@
 'use strict';
 
-let controllers = require('./controllers'),
-    myApp = require('../app');
+const controllers = require('./controllers');
+const bot = require('../libs/telegamBot');
+const conf = require('../conf/index');
+const log = require('../libs/log')(module);
 
-// Telegram bot
-let bot = require('../libs/telegamBot');
-let conf = require('../conf/index');
+module.exports = (app) => {
 
-let log = require('../libs/log')(module);
-
-// Основной роутер
-module.exports = function (app) {
-
-    // Отдаем сайт
-    app.get('/', myApp.run);
-
-    // Отдаем админ-панель
-    app.get('/admin', function (req, res) {
-        res.sendFile(appRoot + '/admin/dist/index.html');
-    });
+    // Отдаем html
+    app.get('/', (req, res) => res.sendFile(appRoot + '/public/index.html'));
 
     // RESTful controllers
     controllers(app);
 
     // Если нет обработчиков, 404
-    app.use(function(req, res, next){
+    app.use((req, res, next) => {
         res.status(404);
         log.debug('Not found URL: %s',req.url);
         res.send({"ok": false, "error_code": 404, "description": "Not found"});
     });
 
-    app.use(function(err, req, res, next){
+    app.use((err, req, res, next) => {
         res.status(err.status || 500);
         log.error('Internal error(%d): %s',res.statusCode,err.message);
         res.send({"ok": false, "error_code": 500, "description": err.message});

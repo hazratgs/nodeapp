@@ -3,18 +3,18 @@
 let page = require('../../controllers/page'),
     url = require('url');
 
-module.exports = function (app) {
+module.exports = (app) => {
 
-    app.get('/api/page/open', function (req, res) {
+    app.get('/api/page/open', (req, res) => {
         res.send(page.open());
     });
 
     // Добавление новой страницы
-    app.get('/api/page/create', function (req, res) {
+    app.get('/api/page/create', (req, res) => {
         let param = url.parse(req.url, true).query;
 
         if (param.title){
-            page.create(param, function (err, data) {
+            page.create(param, (err, data) => {
                 if (err){
                     res.status(500).json({
                         "ok": false,
@@ -37,11 +37,11 @@ module.exports = function (app) {
     });
 
     // Поиск страницы
-    app.get('/api/page/find', function (req, res) {
+    app.get('/api/page/find', (req, res) => {
         let param = url.parse(req.url, true).query;
 
         if (param.q){
-            page.find(param.q, function (data) {
+            page.find(param.q, (data) => {
                 res.json({"ok": true, "result": data});
             });
         } else {

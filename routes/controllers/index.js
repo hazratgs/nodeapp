@@ -6,7 +6,7 @@ let navigation = require('./navigation'),
     setting = require('./setting'),
     user = require('./user');
 
-module.exports = function (app) {
+module.exports = (app) => {
 
     // Navigation controller routes
     navigation(app);

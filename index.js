@@ -6,21 +6,20 @@
 
 'use strict';
 
-let express = require('express');
-let app = express();
-let path = require('path');
+const express = require('express');
+const app = express();
 
 // Путь к корневому каталогу
 global.appRoot = require('app-root-path');
 
-// Кастомный Log
-let log = require('./libs/log')(module);
+// Winston Log
+const log = require('./libs/log')(module);
 
 // HTTP Сервер
-let server = require('./server');
+const server = require('./server');
 
 // Роуты приложения
-let routes = require('./routes');
+const routes = require('./routes');
 
 // Отдача статики
 app.use(express.static(appRoot + '/public'));
@@ -30,4 +29,4 @@ app.use('/static', express.static(appRoot + '/admin/public'));
 routes(app);
 
 // Запуск сервера
-server.run(app);
+server.create(app);

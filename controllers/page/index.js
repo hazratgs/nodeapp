@@ -6,20 +6,20 @@ let conf = require(appRoot + '/conf'),
     model = require('./model');
 
 // Создание страницы
-exports.create = function (param, callback) {
+exports.create = (param, callback) => {
     let newPage = new model.page({
         title: param.title,
         url: param.title
     });
 
-    newPage.save(function (err, newUser) {
+    newPage.save((err, newUser) => {
         callback(err, newUser);
     });
 };
 
 // Поиск страницы
-exports.find = function (query, callback) {
-    model.page.find({title: /^query/}, function (err, pages) {
+exports.find = (query, callback) => {
+    model.page.find({title: /^query/}, (err, pages) => {
         callback(pages);
     });
 };

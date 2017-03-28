@@ -8,10 +8,10 @@ let mongoose = require('mongoose'),
 mongoose.connect(conf.get('mongoose:uri'));
 let db = mongoose.connection;
 
-db.on('error', function (err) {
+db.on('error', (err) => {
     log.error('connection error:', err.message);
 });
-db.once('open', function callback () {
+db.once('open', () => {
     log.info("Connected to DB!");
 });
 

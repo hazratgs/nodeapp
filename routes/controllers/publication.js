@@ -2,8 +2,6 @@
 
 let publication = require('../../controllers/publication');
 
-module.exports = function (app) {
-    app.get('/api/publication', function (req, res) {
-        res.send("Hello");
-    });
+module.exports = (app) => {
+    app.get('/api/publication', (req, res) => res.send("Publication"));
 };
