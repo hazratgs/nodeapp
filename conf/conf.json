@@ -1,7 +1,7 @@
 {
   "port": 3000,
   "mongoose": {
-    "uri": "mongodb://localhost/test1"
+    "uri": "mongodb://localhost/nodeapp"
   },
   "telegram": {
     "token": "284923634:AAFg4S0ahJ5JncV6zSTv3utq2O6Y-lWQOP0",

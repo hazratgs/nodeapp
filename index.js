@@ -9,9 +9,6 @@
 const express = require('express');
 const app = express();
 
-// Путь к корневому каталогу
-global.appRoot = require('app-root-path');
-
 // Winston Log
 const log = require('./libs/log')(module);
 
@@ -22,8 +19,7 @@ const server = require('./server');
 const routes = require('./routes');
 
 // Отдача статики
-app.use(express.static(appRoot + '/public'));
-app.use('/static', express.static(appRoot + '/admin/public'));
+app.use(express.static(process.cwd() + '/public'));
 
 // Основной роутер
 routes(app);

@@ -1,17 +1,19 @@
 'use strict';
 
-const controllers = require('./controllers');
 const bot = require('../libs/telegamBot');
 const conf = require('../conf/index');
 const log = require('../libs/log')(module);
 
+// Api
+const page = require('./page');
+
 module.exports = (app) => {
 
     // Отдаем html
-    app.get('/', (req, res) => res.sendFile(appRoot + '/public/index.html'));
+    app.get('/', (req, res) => res.sendFile(process.cwd() + '/public/index.html'));
 
-    // RESTful controllers
-    controllers(app);
+    // RESTfull api
+    page(app);
 
     // Если нет обработчиков, 404
     app.use((req, res, next) => {
@@ -20,6 +22,7 @@ module.exports = (app) => {
         res.send({"ok": false, "error_code": 404, "description": "Not found"});
     });
 
+    /* Возникла ошибка */
     app.use((err, req, res, next) => {
         res.status(err.status || 500);
         log.error('Internal error(%d): %s',res.statusCode,err.message);

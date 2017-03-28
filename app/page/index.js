@@ -1,6 +1,8 @@
 'use strict';
 
-let conf = require(appRoot + '/conf'),
+const appRoot = process.cwd();
+
+const conf = require(appRoot + '/conf'),
     log = require(appRoot + '/libs/log')(module),
     db = require(appRoot + '/libs/db'),
     model = require('./model');

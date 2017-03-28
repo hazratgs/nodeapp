@@ -1,10 +1,9 @@
 'use strict';
 
-let nconf = require('nconf'),
-    path = require('path');
+let nconf = require('nconf');
 
 nconf.argv()
     .env()
-    .file({file: path.join(__dirname, 'conf.json')});
+    .file({file: process.cwd() + '/conf/' + 'conf.json'});
 
 module.exports = nconf;
