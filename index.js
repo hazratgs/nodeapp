@@ -13,7 +13,7 @@ const app = express();
 const log = require('./libs/log')(module);
 
 // HTTP Сервер
-const server = require('./server');
+const server = require('./bin/server');
 
 // Роуты приложения
 const routes = require('./app/routes');
