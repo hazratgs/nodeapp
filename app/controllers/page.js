@@ -7,7 +7,7 @@ const conf = require(path + '/conf'),
     db = require(path + '/libs/db'),
     model = require('../models/page');
 
-// Создание страницы
+/* Создание страницы */
 exports.create = (param, callback) => {
     let newPage = new model.page({
         title: param.title,
@@ -19,9 +19,14 @@ exports.create = (param, callback) => {
     });
 };
 
-// Поиск страницы
+/* Поиск страницы */
 exports.find = (query, callback) => {
     model.page.find({title: /^query/}, (err, pages) => {
         callback(pages);
     });
 };
+
+/* Функция для теста */
+exports.test = (x, y) => {
+    return x * y;
+}
