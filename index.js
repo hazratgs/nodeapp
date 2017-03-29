@@ -1,10 +1,10 @@
+'use strict';
+
 /*!
  * nodeapp
  * Copyright(c) 2017 Hazrat Gadjikerimov
  * MIT Licensed
  */
-
-'use strict';
 
 const express = require('express');
 const app = express();
@@ -16,7 +16,7 @@ const log = require('./libs/log')(module);
 const server = require('./server');
 
 // Роуты приложения
-const routes = require('./routes');
+const routes = require('./app/routes');
 
 // Отдача статики
 app.use(express.static(process.cwd() + '/public'));

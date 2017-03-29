@@ -1,7 +1,7 @@
 'use strict';
 
-let page = require(process.cwd() + '/app/page'),
-    url = require('url');
+const page = require(process.cwd() + '/app/controllers/page');
+const url = require('url');
 
 module.exports = (app) => {
 

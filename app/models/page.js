@@ -1,8 +1,8 @@
 'use strict';
 
-const root = process.cwd();
+const path = process.cwd();
 
-let db = require(root + '/libs/db');
+let db = require(path + '/libs/db');
 let URLSlugs = require('mongoose-url-slugs');
 
 // Модель страниц

@@ -1,11 +1,11 @@
 'use strict';
 
-const appRoot = process.cwd();
+const path = process.cwd();
 
-const conf = require(appRoot + '/conf'),
-    log = require(appRoot + '/libs/log')(module),
-    db = require(appRoot + '/libs/db'),
-    model = require('./model');
+const conf = require(path + '/conf'),
+    log = require(path + '/libs/log')(module),
+    db = require(path + '/libs/db'),
+    model = require('../models/page');
 
 // Создание страницы
 exports.create = (param, callback) => {

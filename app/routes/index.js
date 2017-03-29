@@ -1,18 +1,20 @@
 'use strict';
 
-const bot = require('../libs/telegamBot');
-const conf = require('../conf/index');
-const log = require('../libs/log')(module);
+const path = process.cwd();
 
-// Api
+const bot = require(path + '/libs/telegamBot');
+const conf = require(path + '/conf/index');
+const log = require(path + '/libs/log')(module);
+
+// Routes
 const page = require('./page');
 
 module.exports = (app) => {
 
     // Отдаем html
-    app.get('/', (req, res) => res.sendFile(process.cwd() + '/public/index.html'));
+    app.get('/', (req, res) => res.sendFile(path + '/public/index.html'));
 
-    // RESTfull api
+    // RESTful api
     page(app);
 
     // Если нет обработчиков, 404
